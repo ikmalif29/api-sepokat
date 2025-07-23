@@ -24,6 +24,6 @@ router.use("/getting-started", async (_req, res) => {
   });
 });
 
-app.listen(process.env.SERVER_PORT, () =>
+app.listen(process.env.PORT, () =>
   console.log("Server berhasil dijalankan.")
 );

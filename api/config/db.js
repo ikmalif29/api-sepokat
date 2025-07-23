@@ -1,18 +1,19 @@
-import "dotenv/config";
 import pkg from 'pg';
 const { Pool } = pkg;
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const pool = new Pool({
-  user: process.env.DB_USER,
   host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD, // Ganti ini dengan password kamu
   database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: parseInt(process.env.DB_PORT),
   ssl: {
-    rejectUnauthorized: false, // Supabase membutuhkan SSL
+    rejectUnauthorized: false
   }
 });
 
 pool.connect()
-  .then(() => console.log("Berhasil terhubung ke Supabase PostgreSQL"))
-  .catch((err) => console.error("Gagal koneksi ke DB:", err));
+  .then(() => console.log("✅ Berhasil konek ke Supabase PostgreSQL"))
+  .catch((err) => console.error("❌ Gagal konek ke DB:", err));
