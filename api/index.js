@@ -2,9 +2,9 @@ import express from "express";
 import "dotenv/config";
 import cors from "cors";
 
-import ProductRoute from "./routes/product-route.js";
-import UserRoute from "./routes/user-route.js";
-import CartRoute from "./routes/cart-route.js";
+import ProductRoute from "../routes/product-route.js";
+import UserRoute from "../routes/user-route.js";
+import CartRoute from "../routes/cart-route.js";
 
 const app = express();
 
